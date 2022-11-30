@@ -21,9 +21,9 @@ services:
     volumes:
     - .:/offline-web
     labels:
-      - traefik.http.routers.offline-web.rule=Host(`leave.wecodex.live`)
-      - traefik.http.routers.offline-web.tls=true
-      - traefik.http.routers.offline-web.tls.certresolver=lets-encrypt
+      - traefik.http.routers.leave-web.rule=Host(`leave.wecodex.live`)
+      - traefik.http.routers.leave-web.tls=true
+      - traefik.http.routers.leave-web.tls.certresolver=lets-encrypt
       - traefik.port=8000
 
     networks:
