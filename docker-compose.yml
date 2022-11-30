@@ -1,0 +1,31 @@
+version: '3'
+
+networks:
+  web:
+    external: true
+  internal:
+    external: false
+
+services:
+  offline-dev:
+    container_name: offline-web
+    restart: unless-stopped
+    build:
+      context: .
+    environment:
+      # - ENVIRONMENT=development
+      # - SECRET_KEY=randomlongseriesofchars
+      - DEBUG=0
+    image: onexspace/offline-web
+    command: python manage.py runserver  0.0.0.0:8000
+    volumes:
+    - .:/offline-web
+    labels:
+      - traefik.http.routers.offline-web.rule=Host(`offline.wecodex.live`)
+      - traefik.http.routers.offline-web.tls=true
+      - traefik.http.routers.offline-web.tls.certresolver=lets-encrypt
+      - traefik.port=8000
+
+    networks:
+      - web
+      - internal
