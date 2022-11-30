@@ -174,16 +174,24 @@
     						text-shadow: 1px 0px rgba(0,0,0,0.11)">PENDING LEAVES</h4>
                 		</div>
                 	
+						<form method="get">
+							{{myFilter.form}}
+							<button type="submit">
+								Search
+							</button>
+						</form>
+
                 		<table class="table">
 							  <thead>
 							    <tr>
 							      <!-- <th scope="col">#</th> -->
 							      <th scope="col">User</th>
 							      <th scope="col">Type</th>
-							      <th scope="col">Day(s)</th>
-							      <th scope="col">Status</th>
 								  <th scope="col">From</th>
 								  <th scope="col">To</th>
+							      <th scope="col">Day(s)</th>
+							      <th scope="col">Status</th>
+
 							      <th scope="col">Actions</th>
 							    </tr>
 							  </thead>
@@ -193,10 +201,12 @@
 
 							      <td>{{ leave.user }}</td>
 							      <td>{{ leave.leavetype}}</td>
-							      <td>{{ leave.leave_days }}</td>
-							      <td>{{ leave.status }}</td>
 								  <td>{{ leave.startdate }}</td>
 								  <td>{{ leave.enddate }}</td>
+							      <td>{{ leave.leave_days }}</td>
+							      <td>{{ leave.status }}</td>
+
+
 
 
 

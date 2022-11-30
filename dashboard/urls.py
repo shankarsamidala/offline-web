@@ -28,6 +28,7 @@ urlpatterns = [
     # path('bank/edit/<int:id>/',views.employee_bank_account_update,name='accountedit'),
     path('leave/apply/',views.leave_creation,name='createleave'),
     path('leaves/pending/all/',views.leaves_list,name='leaveslist'),
+    path('leaves/pending/all_leaves/',views.all_leaves_list,name='allleaveslist'),
     path('leaves/approved/all/',views.leaves_approved_list,name='approvedleaveslist'),
     path('leaves/cancel/all/',views.cancel_leaves_list,name='canceleaveslist'),
     path('leaves/all/view/<int:id>/',views.leaves_view,name='userleaveview'),

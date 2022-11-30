@@ -5,3 +5,4 @@ django-crispy-forms
 django-widget-tweaks 
 phonenumbers==8.10.5
 phonenumberslite==8.8.8
+django-filter

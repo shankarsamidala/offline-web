@@ -13,7 +13,7 @@ from leave.models import Leave
 from employee.models import *
 from leave.forms import LeaveCreationForm
 from django.utils import timezone
-
+from .filters import LeaveFilter
 
 def dashboard(request):
 	
@@ -268,6 +268,19 @@ def leaves_list(request):
 		return redirect('/')
 	leaves = Leave.objects.all_pending_leaves()
 	return render(request,'dashboard/leaves_recent.html',{'leave_list':leaves,'title':'leaves list - pending'})
+
+
+
+def all_leaves_list(request):
+	if not (request.user.is_staff and request.user.is_superuser):
+		return redirect('/')
+	leaves = Leave.objects.all()
+
+	myFilter = LeaveFilter(request.GET, queryset=leaves)
+
+	leaves = myFilter.qs
+
+	return render(request,'dashboard/leaves_recent.html',{'leave_list':leaves,'title':'leaves list - pending','myFilter':myFilter})
 
 
 

@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'dashboard',
     'accounts',
     'employee',
+    'django_filters',
     'leave',
     
 ]
