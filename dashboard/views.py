@@ -37,7 +37,7 @@ def dashboard(request):
 	
 	dataset['employees'] = employees 
 	dataset['leaves'] = leaves
-	
+	 
 	dataset['staff_leaves'] = staff_leaves
 	dataset['title'] = 'summary'
 
