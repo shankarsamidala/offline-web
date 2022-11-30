@@ -41,7 +41,7 @@ def dashboard(request):
 	dataset['staff_leaves'] = staff_leaves.first()
 	dataset['title'] = 'summary'
 
-	print(staff_leaves.first().status)
+	# print(staff_leaves.first().status)
 
 	leaves_all = Leave.objects.filter(startdate__day=timezone.now().day)
 
