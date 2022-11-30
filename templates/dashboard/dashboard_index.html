@@ -78,15 +78,15 @@
             		<section class="col col-lg-4">
             			<div class="employee-box sec-box">
             				<a href="">
-            				<span>Employees </span>
+            				<span>Principals </span>
             				</a>
             				<span class="count-object">{{ dataset.employees.count }}</span> 
             			</div>
             		</section>
             		<section class="col col-lg-4">
             			<div class="leave-box sec-box">
-            				<a href="">
-            				<span>Leaves</span>
+            				<a href="{% url 'dashboard:leaveslist' %}">
+            				<span>Leaves To Be Approved</span>
             				</a>
                             <span class="count-object" style="color:#41b6d6;">{{ dataset.leaves.count }}</span> 
             			</div>
@@ -191,27 +191,27 @@
 							    </tr>
 							  </thead>
 							  <tbody>
-							  	{% for leave in staff_leaves %}
+							  
 							    <tr>
 
-							      <td>{{ leave.user }}</td>
-							      <td>{{ leave.leavetype}}</td>
-								  <td>{{ leave.startdate }}</td>
-								  <td>{{ leave.enddate }}</td>
-							      <td>{{ leave.leave_days }}</td>
+							      <td>{{ dataset.staff_leaves.user }}</td>
+							      <td>{{ dataset.staff_leaves.leavetype}}</td>
+								  <td>{{ dataset.staff_leaves.startdate }}</td>
+								  <td>{{ dataset.staff_leaves.enddate }}</td>
+							      <td>{{ dataset.staff_leaves.leave_days }}</td>
 
-                                    {% if leave.status == 'approved' %}
-                                    <td style="color: green;">{{ leave.status }}</td>
-                                    {% elif leave.status == 'pending' %}
-                                    <td style="color: orange;">{{ leave.status }}</td>
+                                    {% if dataset.staff_leaves.status == 'approved' %}
+                                    <td style="color: green;">{{ dataset.staff_leaves.status }}</td>
+                                    {% elif dataset.staff_leaves.status == 'pending' %}
+                                    <td style="color: orange;">{{ dataset.staff_leaves.status }}</td>
                                     {% else %}
-                                    <td style="color: red;">{{ leave.status }}</td>
+                                    <td style="color: red;">{{ dataset.staff_leaves.status }}</td>
                                     
                                     {% endif %}
                               
 							    </tr>
 
-							    {% endfor %}
+							  
 
 							  </tbody>
 

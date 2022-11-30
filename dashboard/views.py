@@ -38,8 +38,10 @@ def dashboard(request):
 	dataset['employees'] = employees 
 	dataset['leaves'] = leaves
 	 
-	dataset['staff_leaves'] = staff_leaves
+	dataset['staff_leaves'] = staff_leaves.first()
 	dataset['title'] = 'summary'
+
+	print(staff_leaves.first().status)
 
 	leaves_all = Leave.objects.filter(startdate__day=timezone.now().day)
 
